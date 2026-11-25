@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#eef1e9">
+  <meta name="description" content="HILL AND STILL - một không gian âm thanh cá nhân hóa">
+  <title>HILL AND STILL | A personal sound space</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <header class="topbar" id="top">
+    <a class="brand" href="#top" aria-label="HILL AND STILL - đầu trang">
+      <span class="brand-mark">H</span>
+      <span><strong>HILL AND STILL</strong><small>LISTEN TO YOUR OWN RHYTHM</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Điều hướng chính">
+      <a href="#checkin">Mood check-in</a>
+      <a href="#catalog">Library</a><a href="#discover">Discover</a>
+      <a href="#library">My library</a>
+    </nav>
+    <span class="version">MVP 01 <i></i> SOUND SPACE</span>
+  </header>
+
+  <main class="layout">
+    <section class="intro reveal" data-reveal="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> A PERSONAL SOUND SPACE</p>
+        <h1><span class="title-line">Find your</span><span class="title-line"><em>quiet rhythm.</em></span></h1>
+        <p class="sub">Một khoảng lặng dành riêng cho bạn. Chạm vào cảm xúc hiện tại, khám phá âm thanh phù hợp và tạo nên thư viện của riêng mình.</p>
+        <a class="hero-link" href="#checkin">Bắt đầu hành trình <span>↘</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-orbit orbit-a"></div><div class="art-orbit orbit-b"></div>
+        <div class="art-core"><span>H</span></div>
+        <div class="art-leaf leaf-a"></div><div class="art-leaf leaf-b"></div>
+        <div class="art-caption">SLOW DOWN<br>AND LISTEN</div>
+      </div>
+      <div class="hero-foot"><span>01 / 06</span><span>TAKE A BREATH · FIND YOUR SOUND</span></div>
+    </section>
+
+    <section class="panel reveal" id="checkin" data-reveal="up">
+      <div class="section-head"><div><span class="step">01</span><div><p class="section-kicker">START WITH YOURSELF</p><h2>Mood check-in</h2></div></div><span class="hint">Tự đánh giá, không có đúng sai</span></div>
+      <p class="section-intro">Bạn đang ở trạng thái nào? Hãy chọn theo cảm nhận của chính mình.</p>
+      <div class="field-grid">
+        <label class="range-field">Mức căng thẳng <output id="stressOut">5/10</output><input id="stress" type="range" min="0" max="10" value="5"></label>
+        <label class="range-field">Năng lượng <output id="energyOut">3/5</output><input id="energy" type="range" min="1" max="5" value="3"></label>
+        <label>Tâm trạng hiện tại
+          <select id="mood"><option value="neutral">Bình thường</option><option value="low">Trầm / buồn</option><option value="tense">Căng thẳng</option><option value="positive">Tích cực</option><option value="restless">Bồn chồn</option></select>
+        </label>
+        <label>Bạn muốn hướng đến
+          <select id="goal"><option value="calm">Thư giãn, dịu lại</option><option value="focus">Tập trung</option><option value="energize">Nạp năng lượng</option><option value="uplift">Cải thiện tâm trạng</option><option value="maintain">Duy trì trạng thái hiện tại</option></select>
+        </label>
+      </div>
+      <div class="field-grid field-grid-last">
+        <label>Thể loại bạn thích
+          <select id="genre"><option value="any">Không giới hạn</option><option value="ballad">Ballad</option><option value="rap">Rap-Hip Hop</option><option value="rock">Rock Alternative</option><option value="electronic">Electronic EDM</option><option value="instrumental">Instrumental Classical</option><option value="nature">Natural Sounds ASMR</option></select>
+        </label>
+        <label>Âm thanh có lời?
+          <select id="vocal"><option value="any">Không quan trọng</option><option value="no">Ưu tiên không lời</option><option value="yes">Ưu tiên có lời</option></select>
+        </label>
+      </div>
+      <button id="makePlaylist" class="primary"><span>Tạo playlist cá nhân hóa</span><span class="button-arrow">↗</span></button>
+    </section>
+
+    <section class="panel reveal" id="catalog" data-reveal="up">
+      <div class="section-head"><div><span class="step">02</span><div><p class="section-kicker">THE SOUND COLLECTION</p><h2>Music library</h2></div></div><span class="hint" id="catalogCount">51 track · 6 thể loại</span></div>
+      <p class="section-intro">Thư viện chính thức gồm 51 track đã được phân loại. Chọn thư mục nhạc gốc trên máy để liên kết MP3 và phát trực tiếp.</p>
+      <div class="library-import">
+        <label class="folder-button" for="libraryFolder">＋ Chọn thư mục nhạc trên máy</label>
+        <input id="libraryFolder" type="file" webkitdirectory directory multiple accept="audio/*,.mp3,.wav,.ogg" hidden>
+        <span id="folderStatus" class="small">Chưa liên kết file âm thanh · Chọn thư mục gốc D:\ để tự khớp 51 file</span>
+      </div>
+      <div class="catalog-tools"><input id="catalogSearch" type="search" placeholder="Tìm trong 51 track..." aria-label="Tìm trong thư viện"><select id="catalogGenre" aria-label="Lọc thể loại"><option value="all">Tất cả thể loại</option><option value="ballad">Ballad</option><option value="rap">Rap-Hip Hop</option><option value="rock">Rock Alternative</option><option value="electronic">Electronic EDM</option><option value="instrumental">Instrumental Classical</option><option value="nature">Natural Sounds ASMR</option></select></div>
+      <div id="catalogList" class="catalog-list"></div>
+    </section>
+
+    <section class="panel reveal" id="discover" data-reveal="up">
+      <div class="section-head"><div><span class="step">03</span><div><p class="section-kicker">A MOMENT FOR YOU</p><h2>Discover your sound</h2></div></div><span class="hint" id="resultHint">5 gợi ý · Chưa tạo playlist</span></div>
+      <div class="discover-toolbar"><p class="section-intro">Năm gợi ý được chọn từ hồ sơ và trạng thái hiện tại của bạn.</p><button id="refreshPlaylist" class="refresh-btn" type="button" disabled><span class="refresh-icon">↻</span> Refresh suggestions</button></div>
+      <div id="playlist" class="playlist-empty">Điền thông tin phía trên rồi chọn “Tạo playlist”.</div>
+    </section>
+
+    <section class="panel reveal" id="library" data-reveal="up">
+      <div class="section-head"><div><span class="step">04</span><div><p class="section-kicker">MAKE IT YOURS</p><h2>My library</h2></div></div><span class="hint">Lưu trên thiết bị này</span></div>
+      <p class="section-intro">Những âm thanh bạn muốn giữ lại, từ gợi ý có sẵn hoặc do chính bạn thêm vào.</p>
+      <div id="myLibrary" class="library-empty">Thư viện của bạn đang chờ những âm thanh đầu tiên.</div>
+      <div class="custom-track-wrap">
+        <div class="custom-heading"><span class="custom-plus">＋</span><div><strong>Can't find your song?</strong><small>Add Your Own Music · Thêm bài hát chưa có trong dữ liệu</small></div></div>
+        <form id="customTrackForm" class="custom-form">
+          <label>Tên bài hát *<input id="customTitle" type="text" maxlength="120" placeholder="Ví dụ: Một ngày bình yên" required></label>
+          <label>Nghệ sĩ<input id="customArtist" type="text" maxlength="100" placeholder="Tên nghệ sĩ (không bắt buộc)"></label>
+          <label>Thể loại<select id="customGenre"><option value="ballad">Ballad</option><option value="rap">Rap-Hip Hop</option><option value="rock">Rock Alternative</option><option value="electronic">Electronic EDM</option><option value="instrumental">Instrumental Classical</option><option value="nature">Natural Sounds ASMR</option><option value="other">Other</option></select></label>
+          <label class="full-field">Link bài hát<input id="customUrl" type="url" placeholder="https://... (không bắt buộc)"></label>
+          <button class="secondary custom-submit" type="submit">＋ Add to My Library</button>
+        </form>
+        <p class="small privacy-note">Bài tự thêm chỉ được lưu trong My Library trên trình duyệt hiện tại. Chưa gửi lên thư viện chung hay máy chủ.</p>
+      </div>
+    </section>
+
+    <section class="panel reveal" id="uploads" data-reveal="up">
+      <div class="section-head"><div><span class="step">05</span><div><p class="section-kicker">YOUR OWN AUDIO</p><h2>Thêm file âm thanh</h2></div></div><span class="hint">Xử lý ngay trên trình duyệt</span></div>
+      <p class="section-intro">Bạn vẫn có thể chọn file MP3, WAV hoặc OGG để nghe thử. File không được tải lên máy chủ trong bản MVP này.</p>
+      <div class="external-search own-audio-search">
+        <div class="external-head"><strong>Find music beyond your library</strong><span>Apple Search API · third-party</span></div>
+        <p class="small">Tìm tên bài hát hoặc nghệ sĩ chưa có trong 51 track. Bạn có thể nghe thử (nếu có preview), mở nguồn hoặc lưu kết quả vào My Library.</p>
+        <input id="ownAudioSearch" type="search" placeholder="Nhập tên bài hát hoặc nghệ sĩ..." aria-label="Tìm bài hát bên ngoài thư viện">
+        <div id="externalStatus" class="small" aria-live="polite">Nhập ít nhất 2 ký tự để tìm bài hát bên ngoài.</div>
+        <div id="externalResults" class="external-results"></div>
+      </div>
+      <label class="upload-box"><span class="upload-symbol">↑</span><span>Chọn file âm thanh</span><small>MP3 · WAV · OGG</small><input id="audioUpload" type="file" accept="audio/*" multiple hidden></label>
+      <div id="uploadList" class="upload-list"></div>
+    </section>
+
+    <section class="panel reveal" id="feedback" data-reveal="up">
+      <div class="section-head"><div><span class="step">06</span><div><p class="section-kicker">HELP IT UNDERSTAND YOU</p><h2>Phản hồi để hệ thống học</h2></div></div><span class="hint">Chỉ lưu trên thiết bị này</span></div>
+      <p class="section-intro">Sau khi nghe, hãy cho biết bài hát phù hợp với bạn đến đâu. Phản hồi giúp điều chỉnh gợi ý cho những lần tiếp theo.</p>
+      <div id="feedbackTarget" class="feedback-target">Hãy tạo playlist và chọn một bài để đánh giá.</div>
+      <div class="feedback-controls">
+        <label>Độ phù hợp<select id="fit"><option value="5">5 - Rất phù hợp</option><option value="4">4 - Khá phù hợp</option><option value="3" selected>3 - Bình thường</option><option value="2">2 - Ít phù hợp</option><option value="1">1 - Không phù hợp</option></select></label>
+        <label>Mức thoải mái<select id="comfort"><option value="5">5 - Rất thoải mái</option><option value="4">4 - Khá thoải mái</option><option value="3" selected>3 - Bình thường</option><option value="2">2 - Không thoải mái lắm</option><option value="1">1 - Không thoải mái</option></select></label>
+        <button id="saveFeedback" class="secondary" disabled>Lưu phản hồi</button>
+      </div>
+      <p id="learnStatus" class="small status">Chưa có phản hồi cá nhân.</p>
+    </section>
+  </main>
+
+  <section class="player-dock" id="playerDock" aria-label="Trình phát nhạc">
+    <div class="player-track"><div class="player-art">H</div><div class="player-meta"><strong id="playerTitle">Chưa phát nhạc</strong><small id="playerArtist">HILL AND STILL · 51 TRACKS</small></div></div>
+    <div class="player-center"><div class="player-controls"><button id="prevTrack" type="button" aria-label="Bài trước">⏮</button><button id="togglePlay" class="player-play" type="button" aria-label="Phát nhạc">▶</button><button id="nextTrack" type="button" aria-label="Bài tiếp">⏭</button></div><div class="player-progress"><span id="currentTime">0:00</span><input id="seekBar" type="range" min="0" max="1000" value="0" aria-label="Tiến trình bài hát"><span id="totalTime">0:00</span></div></div>
+    <div class="player-side"><canvas id="visualizer" width="140" height="34" aria-label="Visualizer âm thanh"></canvas><label class="volume-control" aria-label="Âm lượng">♪ <input id="volumeBar" type="range" min="0" max="1" step="0.01" value="0.8"></label></div>
+    <audio id="mainAudio" preload="metadata"></audio>
+  </section>
+  <footer><span class="footer-mark">H</span><p>HILL AND STILL</p><small>A personal space for sound and stillness.</small><small class="disclaimer">Công cụ hỗ trợ trải nghiệm âm thanh, không phải công cụ chẩn đoán hay điều trị.</small></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="data/sounds.js"></script>
+  <script src="ai/recommender.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
